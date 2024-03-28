@@ -302,7 +302,7 @@ export const User = () => {
                     <td>{user.email}</td>
                     <td>{user.role}</td>
                     <td className="col-md-2" style={{textAlign:'center',borderTop:'1px solid grey'}}>
-                      <button className="btn btn-success" onClick={() => handleEdit(user.id)}><FontAwesomeIcon icon={faEdit}/></button>
+                      <button className="btn btn-primary" onClick={() => handleEdit(user.id)}><FontAwesomeIcon icon={faEdit}/></button>
                       <span>&nbsp;</span>
                       <button className="btn btn-danger" onClick={() => deleteUser(user.id)}><FontAwesomeIcon icon={faTrash}/></button>
                     </td>                 

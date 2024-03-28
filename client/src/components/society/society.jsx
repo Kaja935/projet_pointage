@@ -241,7 +241,7 @@
                                                               <img width="50px" src={`http://localhost:8000/storage/society/logo/${row.logo}`} alt="Society Logo" />
                                                           </td>
                                                           <td>
-                                                              <Button variant="success" onClick={() => editSociety(row)}><FontAwesomeIcon icon={faEdit}/></Button>
+                                                              <Button variant="primary" onClick={() => editSociety(row)}><FontAwesomeIcon icon={faEdit}/></Button>
                                                               <span>&nbsp;</span>
                                                               <Button variant="danger" onClick={() => deleteSocieties(row.id)}>
                                                                   <FontAwesomeIcon icon={faTrash}/>

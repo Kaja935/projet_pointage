@@ -61,7 +61,7 @@ const WorkhourMapping = () => {
                                             <td>{line.checkin_pm}</td>
                                             <td>{line.checkout_pm}</td>
                                             <td className='col-md-1'>
-                                                <Button style={{ width: '50px' }} className='btn btn-success'><FontAwesomeIcon icon={faEdit} /></Button>
+                                                <Button style={{ width: '50px' }} className='btn btn-primary'><FontAwesomeIcon icon={faEdit} /></Button>
                                                 <span>&nbsp;</span>
                                                 <Button style={{ width: '50px' }} className='btn btn-danger'><FontAwesomeIcon icon={faTrash} /></Button>
                                             </td>

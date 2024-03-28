@@ -4,10 +4,10 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col, Form, Button, ListGroup, Card, CardHeader } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit,faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
-import './employee.css';
+//import './employee.css';
 
 import './emp.css';
 
@@ -294,7 +294,7 @@ export  const Employee= () => {
                             <option value="">Select Department</option>
                             {departments.map((department) => (
                                 <option key={department.id} value={department.id}>
-                                    {department.description}
+                                    {department.coded}
                                 </option>
                             ))}
 
@@ -375,13 +375,14 @@ export  const Employee= () => {
                                     <td><img width="50px" src={`http://localhost:8000/storage/society/logo/${employee.society.logo}`} alt="Society Logo" /></td>
                                     <td>{employee.department.description}</td>
                                     <td>
+                                        <button className="btn btn-primary ml-2" onClick={() => editEmployee(employee)}>
+                                            <FontAwesomeIcon icon={faEdit} />
+                                        </button>
                                         <button className="btn btn-danger" onClick={() => deleteEmployee(employee.id)}>
                                             <FontAwesomeIcon icon={faTrash} />
                                         </button>
                                         <span>&nbsp;</span>
-                                        <button className="btn btn-primary ml-2" onClick={() => editEmployee(employee)}>
-                                            Edit
-                                        </button>
+                                        
                                     </td>
                                 </tr>
                             ))

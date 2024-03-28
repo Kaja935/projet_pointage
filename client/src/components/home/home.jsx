@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Navbar, Container, Row, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faSignOutAlt ,faUser, faBuilding, faTachometer, faBuildingUser, faCalendar, faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
+import { faUserTie,faBars, faSignOutAlt ,faUser, faBuilding, faTachometer, faBuildingUser, faCalendar, faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Society } from "../society/society";
 import { User } from "../user/user";
@@ -28,7 +28,7 @@ export const Home = () => {
   };
 
   const toggleLanguage = () => {
-    const newLanguage = i18n.language === 'en' ? 'fr' : 'en';
+    const newLanguage = i18n.language === 'fr' ? 'en' : 'fr';
     setIsLoading(true); 
     setTimeout(() => {
       i18n.changeLanguage(newLanguage);
@@ -58,26 +58,26 @@ export const Home = () => {
     }
   };
 
-    const renderContent = () => {
-      switch (value) {
-        case '0' :
-          return <h1>Dashboard no eto angambany</h1>
-        case '1':
-          return <Society />;
-        case '2':
-          return <User />;
-          case '3':
-            return<Department />
-        case '4':
-          return<WorkhourForm />
-        case '5':
-          return <WorkhourMapping />
-        case '6':
-          return <Employee />
-        default:
-          return <h1>Home</h1>;
-      }
-    };
+    // const renderContent. = () => {
+    //   switch (value) {
+    //     case '0' :
+    //       return <h1>Dashboard no eto angambany</h1>
+    //     case '1':
+    //       return <Society />;
+    //     case '2':
+    //       return <User />;
+    //       case '3':
+    //         return<Department />
+    //     case '4':
+    //       return<WorkhourForm />
+    //     case '5':
+    //       return <WorkhourMapping />
+    //     case '6':
+    //       return <Employee />
+    //     default:
+    //       return <h1>Home</h1>;
+    //   }
+    // };
 
   
   return (
@@ -87,7 +87,7 @@ export const Home = () => {
           <div className="logo"></div>
         </Container>
         <Button variant="outline-light" style={{ border: "1px solid black", color:'black', marginRight:'10px' }} onClick={toggleLanguage}>
-          {i18n.language === 'en' ? 'FR' : 'EN'}
+          {i18n.language === 'fr' ? 'FR' : 'EN'}
         </Button>
       </Navbar>
       <Container fluid className="mt-5" style={{ marginTop: "250px" }}>
@@ -139,9 +139,9 @@ export const Home = () => {
 
               <FontAwesomeIcon icon={faUser} style={{color: selected === '2' ? 'black' : 'white'  }} /><span>&nbsp;</span>{t('User')}
 
-                <FontAwesomeIcon icon={faCalendarAlt} style={{  color: selected === '5'? 'black' : 'white'}} /> WorkhourList
+                {/* <FontAwesomeIcon icon={faCalendarAlt} style={{  color: selected === '5'? 'black' : 'white'}} /> WorkhourList */}
             </div>
-            <div
+            {/* <div
                 onClick={() => handleClick('6')}
                 style={{
                     backgroundColor: selected === '6' ? '#ececec' : 'inherit',
@@ -150,9 +150,9 @@ export const Home = () => {
                     color: selected === '6'? 'black' : 'white'
                 }}
             >
-                <FontAwesomeIcon icon={faUserTie} style={{  color: selected === '6'? 'black' : 'white'}} /> Employee
+                {/* <FontAwesomeIcon icon={faUserTie} style={{  color: selected === '6'? 'black' : 'white'}} /> Employee *
 
-            </div>
+            </div> */}
               <div
                   onClick={() => handleClick('3')}
                   style={{
@@ -195,7 +195,7 @@ export const Home = () => {
                       color: selected === '6'? 'black' : 'white'
                   }}
               >
-                  <FontAwesomeIcon icon={faCalendarAlt} style={{  color: selected === '6'? 'black' : 'white'}} /><span>&nbsp;</span>{t('Employee')}
+                  <FontAwesomeIcon icon={faUserTie} style={{  color: selected === '6'? 'black' : 'white'}} /><span>&nbsp;</span>{t('Employee')}
               </div>
                   <div style={{ position: "absolute", bottom: "20px", left: '15%' }}>
                     <Button style={{ background: "none", border: "none", color: "white" }}>

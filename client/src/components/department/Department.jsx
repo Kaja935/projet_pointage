@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col, Form, Button, ListGroup, Card, CardHeader } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit,faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import './departement.css';
 
@@ -167,13 +167,13 @@ export const Department = () => {
                                     <td>{department.society.company_name}</td>
                                     <td><img width="50px" src={`http://localhost:8000/storage/society/logo/${department.society.logo}`} alt="Society Logo" /></td>
                                     <td>
+                                        <button className="btn btn-primary ml-2" onClick={() => editDepartment(department)}>
+                                            <FontAwesomeIcon icon={faEdit} />
+                                        </button>
                                         <button className="btn btn-danger" onClick={() => deleteDepartment(department.id)}>
                                             <FontAwesomeIcon icon={faTrash} />
                                         </button>
                                         <span>&nbsp;</span>
-                                        <button className="btn btn-primary ml-2" onClick={() => editDepartment(department)}>
-                                            Edit
-                                        </button>
                                     </td>
                                 </tr>
                             ))}
