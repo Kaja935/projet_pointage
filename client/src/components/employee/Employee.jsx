@@ -6,7 +6,11 @@ import { Container, Row, Col, Form, Button, ListGroup, Card, CardHeader } from '
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
+
+import './employee.css';
+
 import './emp.css';
+
 
 export  const Employee= () => {
     const [societies, setSocieties] = useState([]);
@@ -41,6 +45,9 @@ export  const Employee= () => {
     };
 
     useEffect(() => {
+
+       fetchEmployees()
+
         const intervalId = setInterval(() => {
             fetchEmployees();
         }, 1000);
@@ -48,6 +55,7 @@ export  const Employee= () => {
         return () => {
             clearInterval(intervalId); 
         };
+
     }, []);
     
     const fetchEmployees = async () => {
@@ -55,9 +63,23 @@ export  const Employee= () => {
             const response = await axios.get("http://localhost:8000/api/employees");
             setEmployees(response.data.employees);
         } catch (error) {
-            console.error("Failed to fetch employees:", error);
+            if (error.response.status === 429) {
+                toast.error("Error message", {
+                    position: "top-center",
+                    style: {
+                      backgroundColor: "black",
+                      color: "white"
+                    }
+                  });                  
+                  
+                await new Promise(resolve => setTimeout(resolve, 5000)); 
+                fetchEmployees(); 
+            } else {
+                console.error("Failed to fetch employees:", error);
+            }
         }
     };
+    
     
     const fetchSocieties = async () => {
         try {
